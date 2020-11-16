@@ -2,20 +2,6 @@ function [u,x,y] = FD_wave_solution(N, T, dt, B)
 % Hw2 code from github, slightly changes include: initial condition,
 % remove plotting and relevant variables.
 
-% solving the wave equation
-%                           N:         number of grid points
-%                           T:         final time
-%                           dt:        time step
-%                           B:         sin(Bpix)...
-
-% an if block to be sure that there are enough paramaters
-% if nargin < 5
-%     plot_n = 100;
-%     if nargin < 4
-%         plot_bool = true;
-%     end
-% end
-
 % initial condition
 ut = @(x,y)(sin(B*pi*x).*sin(B*pi*y));
 
@@ -55,17 +41,6 @@ for i = 1:Nit
     % update u^{n} and u^{n-1}
     u0 = u1;
     u1 = u;
-    
-    % plot if necessary
-%     if plot_bool && (mod(i,plot_n) == 0 )
-%         figure(1);
-%         surf(X, Y, u);
-%         axis([0 1  0 1  -0.05 0.05]);
-%         shading interp
-%         drawnow;
-%         fprintf('iteration number : %i \n', i)
-%         
-%     end
 end
 
 end
