@@ -1,6 +1,5 @@
-clear;
-clf;
-N = 64;
+close all; clear; clc;
+N = 64; % value can also be 128
 T = 0.75;
 
 waveDt = (1/N)*(1/5);
@@ -8,6 +7,7 @@ waveDt = (1/N)*(1/5);
 Bs = 10:10:200;
 errSp = zeros(length(Bs),1); % spectral error
 errFd = zeros(length(Bs),1); % finite difference error
+
 for i=1:length(Bs)
     B = Bs(i);
     disp(B);
@@ -29,7 +29,7 @@ hold on
 plot(Bs, errSp, '-');
 
 plot(Bs, errFd, '--');
-legend('spectral FFT solver error','Finite Difference solver error')
+legend('spectral FFT solver error','Finite Difference solver error','Interpreter','latex', 'FontSize', 24)
 %plot(Bs, errFd2, '-');
 
 ax = gca;

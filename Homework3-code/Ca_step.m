@@ -13,5 +13,14 @@ LapU = Laplacian(utCurr);
 LapSquareU = Laplacian(LapU);
 
 utNew = -utPrev + 2*utCurr + ((dt)^2)*LapU + (1/12)*((dt)^4)*LapSquareU;
+
+%BC
+N = size(utCurr,1);
+
+utNew(1,:) = 0;
+utNew(N,:) = 0;
+
+utNew(:,1) = 0;
+utNew(:,N) = 0;
 end
 

@@ -8,7 +8,7 @@ function [u1] = initialStep(u0,u0_t, dt)
 % Output: 
 %    u1  : grid at t=1
 
-u1 = u0 + dt*u0_t + (dt^2)*Laplacian(u0) + (dt^3)*Laplacian(u0_t);
+u1 = u0 + dt*u0_t + (1/2)*(dt^2)*Laplacian(u0) + (1/6)*(dt^3)*Laplacian(u0_t);
 
 % Same BC as homework 2: homogeneous Dirichlet boundary condition
 N = size(u0,1);
